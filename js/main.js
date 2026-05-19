@@ -33,7 +33,7 @@ function renderHeader() {
     <div class="container">
       <div class="header-inner">
         <a href="${BASE}/" class="logo">
-          <img src="${BASE}/images/electropin-logo.png" alt="Electropin" class="logo-img">
+          <img src="https://raw.githubusercontent.com/subhajitgorai-create/electropin/master/images/electropin-logo.png" alt="Electropin" class="logo-img">
         </a>
         <nav class="desktop-nav">
           <a href="${BASE}/">Home</a>
@@ -113,7 +113,7 @@ function renderFooter() {
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="logo" style="margin-bottom:16px">
-            <img src="${BASE}/images/electropin-logo.png" alt="Electropin" class="logo-img logo-img-footer">
+            <img src="https://raw.githubusercontent.com/subhajitgorai-create/electropin/master/images/electropin-logo.png" alt="Electropin" class="logo-img logo-img-footer">
           </div>
           <p>Custom Connector Pins Without the Waste</p>
           <p style="margin-top:8px">Founded 1943 &middot; North Carolina</p>
