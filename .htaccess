@@ -1,4 +1,5 @@
 RewriteEngine On
+ErrorDocument 404 /404.html
 
 # Redirect .html URLs to clean URLs (avoid duplicate content)
 RewriteCond %{THE_REQUEST} \s/(.+?)\.html[\s?] [NC]

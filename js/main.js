@@ -140,7 +140,7 @@ function renderFooter() {
           <h3 class="footer-heading">Contact</h3>
           <ul class="footer-contact">
             <li>${icons.phone} <a href="tel:+19192881203">(919) 288-1203</a></li>
-            <li>${icons.pin} North Carolina</li>
+            <li>${icons.pin} 110 Centura Dr, Goldsboro, NC 27530</li>
             <li>${icons.clock} Mon-Fri: 8AM - 5PM</li>
           </ul>
         </div>
@@ -334,14 +334,54 @@ function handleServiceForm(event) {
   success.style.display = 'block';
 }
 
+/* ===== SEO: ORGANIZATION SCHEMA (ALL PAGES) ===== */
+function injectOrganizationSchema() {
+  var schema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Electropin",
+    "legalName": "Autoswage Products, Inc. DBA Electropin",
+    "url": "https://electropintech.com",
+    "logo": "https://raw.githubusercontent.com/subhajitgorai-create/electropin/master/images/electropin-logo.webp",
+    "foundingDate": "1943",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "110 Centura Dr",
+      "addressLocality": "Goldsboro",
+      "addressRegion": "NC",
+      "postalCode": "27530",
+      "addressCountry": "US"
+    },
+    "telephone": "+1-919-288-1203"
+  };
+  var script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(schema);
+  document.head.appendChild(script);
+}
+
+/* ===== SEO: DEFERRED VIDEO LOADING ===== */
+function initDeferredVideo() {
+  window.addEventListener('load', function() {
+    var video = document.querySelector('video[data-src]');
+    if (!video) return;
+    var source = document.createElement('source');
+    source.src = video.getAttribute('data-src');
+    source.type = 'video/mp4';
+    video.appendChild(source);
+    video.load();
+  });
+}
+
 /* ===== INIT ===== */
 document.addEventListener('DOMContentLoaded', () => {
   renderHeader();
   renderFooter();
+  injectOrganizationSchema();
+  initDeferredVideo();
   initCatalogFilters();
   initTransparentHeader();
   initFaqAccordion();
-  // ESC closes modal
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') closeQuoteModal();
   });
