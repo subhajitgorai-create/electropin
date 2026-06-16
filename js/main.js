@@ -34,6 +34,7 @@ function renderHeader() {
       <div class="header-inner">
         <a href="${BASE}/" class="logo">
           <img src="https://raw.githubusercontent.com/subhajitgorai-create/electropin/master/images/electropin-logo.webp" alt="Electropin" class="logo-img">
+          <span class="logo-text"><span class="logo-text-top">ELECTROPIN</span><span class="logo-text-bottom">TECHNOLOGIES</span></span>
         </a>
         <nav class="desktop-nav">
           <a href="${BASE}/">Home</a>
@@ -56,7 +57,7 @@ function renderHeader() {
             <a href="${BASE}/services/" style="display:inline-flex;align-items:center;gap:4px">
               Services <span class="dropdown-caret">${icons.chevronDown}</span>
             </a>
-            <div class="nav-dropdown-menu" style="min-width:280px">
+            <div class="nav-dropdown-menu nav-dropdown-wide">
               <div class="nav-dropdown-menu-inner">
                 <a href="${BASE}/services/custom-connector-pins-manufacturing">Custom Connector Pins Manufacturing</a>
                 <a href="${BASE}/services/dfm-consultation">Design for Manufacturing (DFM)</a>
@@ -114,6 +115,7 @@ function renderFooter() {
         <div class="footer-brand">
           <div class="logo" style="margin-bottom:16px">
             <img src="https://raw.githubusercontent.com/subhajitgorai-create/electropin/master/images/electropin-logo.webp" alt="Electropin" class="logo-img logo-img-footer">
+            <span class="logo-text logo-text-footer"><span class="logo-text-top">ELECTROPIN</span><span class="logo-text-bottom">TECHNOLOGIES</span></span>
           </div>
           <p>Custom Connector Pins Without the Waste</p>
           <p style="margin-top:8px">Founded 1943 &middot; North Carolina</p>
@@ -287,8 +289,68 @@ function initCatalogFilters() {
 }
 
 function toggleFilterPanel() {
-  const body = document.querySelector('.filter-panel-body');
-  if (body) body.classList.toggle('active');
+  var panel = document.querySelector('.filter-panel');
+  if (!panel) return;
+
+  // On desktop (>=1024px) use the old toggle behavior
+  if (window.innerWidth >= 1024) {
+    var body = document.querySelector('.filter-panel-body');
+    if (body) body.classList.toggle('active');
+    return;
+  }
+
+  // Mobile: open as bottom sheet
+  openFilterSheet();
+}
+
+function openFilterSheet() {
+  var panel = document.querySelector('.filter-panel');
+  if (!panel) return;
+
+  // Inject handle + close button once
+  if (!panel.querySelector('.filter-sheet-handle')) {
+    var handle = document.createElement('div');
+    handle.className = 'filter-sheet-handle';
+    panel.insertBefore(handle, panel.firstChild);
+  }
+  var heading = panel.querySelector('.filter-panel-heading');
+  if (heading && !heading.querySelector('.filter-sheet-close')) {
+    var closeBtn = document.createElement('button');
+    closeBtn.className = 'filter-sheet-close';
+    closeBtn.setAttribute('aria-label', 'Close filters');
+    closeBtn.innerHTML = icons.close;
+    closeBtn.addEventListener('click', closeFilterSheet);
+    heading.appendChild(closeBtn);
+  }
+
+  // Ensure filter body is visible inside sheet
+  var body = panel.querySelector('.filter-panel-body');
+  if (body) body.classList.add('active');
+
+  // Create backdrop if needed
+  var backdrop = document.getElementById('filter-backdrop');
+  if (!backdrop) {
+    backdrop = document.createElement('div');
+    backdrop.id = 'filter-backdrop';
+    backdrop.className = 'filter-backdrop';
+    backdrop.addEventListener('click', closeFilterSheet);
+    document.body.appendChild(backdrop);
+  }
+
+  // Show
+  requestAnimationFrame(function() {
+    backdrop.classList.add('active');
+    panel.classList.add('sheet-active');
+  });
+  document.body.style.overflow = 'hidden';
+}
+
+function closeFilterSheet() {
+  var panel = document.querySelector('.filter-panel');
+  var backdrop = document.getElementById('filter-backdrop');
+  if (panel) panel.classList.remove('sheet-active');
+  if (backdrop) backdrop.classList.remove('active');
+  document.body.style.overflow = '';
 }
 
 /* ===== TRANSPARENT HEADER ON HERO PAGES ===== */
@@ -383,6 +445,14 @@ document.addEventListener('DOMContentLoaded', () => {
   initTransparentHeader();
   initFaqAccordion();
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') closeQuoteModal();
+    if (e.key === 'Escape') {
+      closeQuoteModal();
+      closeFilterSheet();
+      var menu = document.getElementById('mobile-menu');
+      if (menu && menu.classList.contains('active')) {
+        menu.classList.remove('active');
+        document.getElementById('mobile-icon').innerHTML = icons.menu;
+      }
+    }
   });
 });
