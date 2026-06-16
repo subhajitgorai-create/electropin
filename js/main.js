@@ -33,7 +33,7 @@ function renderHeader() {
     <div class="container">
       <div class="header-inner">
         <a href="${BASE}/" class="logo">
-          <img src="https://raw.githubusercontent.com/subhajitgorai-create/electropin/master/images/electropin-logo.webp" alt="Electropin" class="logo-img">
+          <img src="https://raw.githubusercontent.com/subhajitgorai-create/electropin/master/images/electropin-logo.webp" alt="Electropin Technologies LLC" class="logo-img">
           <span class="logo-text"><span class="logo-text-top">ELECTROPIN</span><span class="logo-text-bottom">TECHNOLOGIES</span></span>
         </a>
         <nav class="desktop-nav">
@@ -114,7 +114,7 @@ function renderFooter() {
       <div class="footer-grid">
         <div class="footer-brand">
           <div class="logo" style="margin-bottom:16px">
-            <img src="https://raw.githubusercontent.com/subhajitgorai-create/electropin/master/images/electropin-logo.webp" alt="Electropin" class="logo-img logo-img-footer">
+            <img src="https://raw.githubusercontent.com/subhajitgorai-create/electropin/master/images/electropin-logo.webp" alt="Electropin Technologies LLC" class="logo-img logo-img-footer">
             <span class="logo-text logo-text-footer"><span class="logo-text-top">ELECTROPIN</span><span class="logo-text-bottom">TECHNOLOGIES</span></span>
           </div>
           <p>Custom Connector Pins Without the Waste</p>
@@ -148,7 +148,7 @@ function renderFooter() {
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; ${new Date().getFullYear()} Autoswage Products, Inc. DBA Electropin. All rights reserved.</p>
+        <p>&copy; ${new Date().getFullYear()} Electropin Technologies LLC. All rights reserved.</p>
         <div style="display:flex;gap:24px">
           <a href="${BASE}/about">About</a>
           <a href="${BASE}/contact">Contact</a>
@@ -401,8 +401,8 @@ function injectOrganizationSchema() {
   var schema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "Electropin",
-    "legalName": "Autoswage Products, Inc. DBA Electropin",
+    "name": "Electropin Technologies LLC",
+    "legalName": "Electropin Technologies LLC",
     "url": "https://electropintech.com",
     "logo": "https://raw.githubusercontent.com/subhajitgorai-create/electropin/master/images/electropin-logo.webp",
     "foundingDate": "1943",
