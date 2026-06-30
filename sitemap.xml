@@ -4,10 +4,10 @@
   <url><loc>https://electropintech.com/about</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://electropintech.com/contact</loc><priority>0.9</priority><changefreq>monthly</changefreq></url>
 
-  <url><loc>https://electropintech.com/products/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://electropintech.com/products/connector-pins/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://electropintech.com/products/fastening-alignment-pins/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://electropintech.com/products/specialty-retention-pins/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://electropintech.com/products</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://electropintech.com/products/connector-pins</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://electropintech.com/products/fastening-alignment-pins</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://electropintech.com/products/specialty-retention-pins</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 
   <url><loc>https://electropintech.com/products/connector-pins/custom-connector-pins</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://electropintech.com/products/connector-pins/solid-electrical-contact-pins</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
@@ -24,7 +24,7 @@
   <url><loc>https://electropintech.com/products/specialty-retention-pins/grooved-pins</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://electropintech.com/products/specialty-retention-pins/knurled-pins</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
 
-  <url><loc>https://electropintech.com/services/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://electropintech.com/services</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://electropintech.com/services/custom-connector-pins-manufacturing</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://electropintech.com/services/custom-die-creation</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://electropintech.com/services/dfm-consultation</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>

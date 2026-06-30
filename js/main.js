@@ -40,21 +40,21 @@ function renderHeader() {
           <a href="${BASE}/">Home</a>
           <a href="${BASE}/about">About</a>
           <div class="nav-dropdown">
-            <a href="${BASE}/products/" style="display:inline-flex;align-items:center;gap:4px">
+            <a href="${BASE}/products" style="display:inline-flex;align-items:center;gap:4px">
               Products <span class="dropdown-caret">${icons.chevronDown}</span>
             </a>
             <div class="nav-dropdown-menu">
               <div class="nav-dropdown-menu-inner">
-                <a href="${BASE}/products/connector-pins/">Connector Pins</a>
-                <a href="${BASE}/products/fastening-alignment-pins/">Fastening & Alignment Pins</a>
-                <a href="${BASE}/products/specialty-retention-pins/">Specialty Retention Pins</a>
+                <a href="${BASE}/products/connector-pins">Connector Pins</a>
+                <a href="${BASE}/products/fastening-alignment-pins">Fastening & Alignment Pins</a>
+                <a href="${BASE}/products/specialty-retention-pins">Specialty Retention Pins</a>
                 <div class="dropdown-divider"></div>
-                <a href="${BASE}/products/" style="color:var(--primary);font-weight:500">View All Products</a>
+                <a href="${BASE}/products" style="color:var(--primary);font-weight:500">View All Products</a>
               </div>
             </div>
           </div>
           <div class="nav-dropdown">
-            <a href="${BASE}/services/" style="display:inline-flex;align-items:center;gap:4px">
+            <a href="${BASE}/services" style="display:inline-flex;align-items:center;gap:4px">
               Services <span class="dropdown-caret">${icons.chevronDown}</span>
             </a>
             <div class="nav-dropdown-menu nav-dropdown-wide">
@@ -80,11 +80,11 @@ function renderHeader() {
     <div class="mobile-menu" id="mobile-menu">
       <a href="${BASE}/">Home</a>
       <a href="${BASE}/about">About</a>
-      <a href="${BASE}/products/">Products</a>
-      <a href="${BASE}/products/connector-pins/" class="sub-link">Connector Pins</a>
-      <a href="${BASE}/products/fastening-alignment-pins/" class="sub-link">Fastening & Alignment Pins</a>
-      <a href="${BASE}/products/specialty-retention-pins/" class="sub-link">Specialty Retention Pins</a>
-      <a href="${BASE}/services/">Services</a>
+      <a href="${BASE}/products">Products</a>
+      <a href="${BASE}/products/connector-pins" class="sub-link">Connector Pins</a>
+      <a href="${BASE}/products/fastening-alignment-pins" class="sub-link">Fastening & Alignment Pins</a>
+      <a href="${BASE}/products/specialty-retention-pins" class="sub-link">Specialty Retention Pins</a>
+      <a href="${BASE}/services">Services</a>
       <a href="${BASE}/services/custom-connector-pins-manufacturing" class="sub-link">Custom Manufacturing</a>
       <a href="${BASE}/services/dfm-consultation" class="sub-link">DFM Consultation</a>
       <a href="${BASE}/services/custom-die-creation" class="sub-link">Custom Die Creation</a>
@@ -123,10 +123,10 @@ function renderFooter() {
         <div>
           <h3 class="footer-heading">Products</h3>
           <ul class="footer-links">
-            <li><a href="${BASE}/products/connector-pins/">Connector Pins</a></li>
-            <li><a href="${BASE}/products/fastening-alignment-pins/">Fastening & Alignment Pins</a></li>
-            <li><a href="${BASE}/products/specialty-retention-pins/">Specialty Retention Pins</a></li>
-            <li><a href="${BASE}/products/" style="color:var(--primary)">View All Products</a></li>
+            <li><a href="${BASE}/products/connector-pins">Connector Pins</a></li>
+            <li><a href="${BASE}/products/fastening-alignment-pins">Fastening & Alignment Pins</a></li>
+            <li><a href="${BASE}/products/specialty-retention-pins">Specialty Retention Pins</a></li>
+            <li><a href="${BASE}/products" style="color:var(--primary)">View All Products</a></li>
           </ul>
         </div>
         <div>
@@ -152,6 +152,7 @@ function renderFooter() {
         <div style="display:flex;gap:24px">
           <a href="${BASE}/about">About</a>
           <a href="${BASE}/contact">Contact</a>
+          <a href="${BASE}/feeds">Feeds</a>
         </div>
       </div>
     </div>
@@ -396,31 +397,7 @@ function handleServiceForm(event) {
   success.style.display = 'block';
 }
 
-/* ===== SEO: ORGANIZATION SCHEMA (ALL PAGES) ===== */
-function injectOrganizationSchema() {
-  var schema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Electropin Technologies LLC",
-    "legalName": "Electropin Technologies LLC",
-    "url": "https://electropintech.com",
-    "logo": "https://raw.githubusercontent.com/subhajitgorai-create/electropin/master/images/electropin-logo.webp",
-    "foundingDate": "1943",
-    "address": {
-      "@type": "PostalAddress",
-      "streetAddress": "110 Centura Dr",
-      "addressLocality": "Goldsboro",
-      "addressRegion": "NC",
-      "postalCode": "27530",
-      "addressCountry": "US"
-    },
-    "telephone": "+1-919-288-1203"
-  };
-  var script = document.createElement('script');
-  script.type = 'application/ld+json';
-  script.textContent = JSON.stringify(schema);
-  document.head.appendChild(script);
-}
+/* Organization JSON-LD is now inlined statically in each page's <head> (not JS-injected). */
 
 /* ===== SEO: DEFERRED VIDEO LOADING ===== */
 function initDeferredVideo() {
@@ -439,7 +416,6 @@ function initDeferredVideo() {
 document.addEventListener('DOMContentLoaded', () => {
   renderHeader();
   renderFooter();
-  injectOrganizationSchema();
   initDeferredVideo();
   initCatalogFilters();
   initTransparentHeader();
